@@ -4,7 +4,7 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-echo "Bring up the new web-server"
+echo "Bring up the new container"
 docker run \
   --detach \
   --name ${APP_CONTAINER} \
