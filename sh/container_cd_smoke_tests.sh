@@ -13,6 +13,9 @@ source ${MY_DIR}/env-vars.sh
 
 docker ps -a
 
+# Crude wait for readyness
+sleep 5
+
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 if curl -i -X GET "http://72.31.27.195:${APP_PORT}/index.html" &> ${CURL_LOG} ; then
