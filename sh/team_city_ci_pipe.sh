@@ -35,13 +35,19 @@ sleep 1
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 curl --help
+curl -i -f -X GET "http://google.co.uk/"
+
+docker container ls
+docker-machine --version
+docker-machine ls
+
 if curl -i -X GET "http://0.0.0.0:${APP_PORT}/" &> ${CURL_LOG} ; then
   echo "Route / is 200"
 else
   status=$?
   echo "Route / is poorly (${status})"
   cat ${CURL_LOG}
-  bring_down_container
+  #bring_down_container
   #exit ${status}
 fi
 

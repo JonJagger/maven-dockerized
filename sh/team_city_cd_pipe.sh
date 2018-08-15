@@ -49,6 +49,6 @@ else
   status=$?
   echo "Route / is poorly (${status})"
   cat ${CURL_LOG}
-  bring_down_container
-  exit ${status}
+  #bring_down_container
+  #exit ${status}
 fi
