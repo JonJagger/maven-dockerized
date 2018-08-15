@@ -17,9 +17,9 @@ bring_down_container()
   docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
   docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
 
-  docker ps -a
-  info=$(docker ps -a)
-  echo "${info}"
+  docker rm --force demowebmvc &> /dev/null || true
+
+  #docker ps -a
 
   docker rm --force ${APP_CONTAINER} &> /dev/null || true
 }
