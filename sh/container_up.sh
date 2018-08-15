@@ -9,7 +9,8 @@ docker run \
   --detach \
   --name ${APP_CONTAINER} \
   --publish ${APP_PORT}:8080 \
-    ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
+    ${DOCKER_REGISTRY_URL}/${APP_IMAGE} \
+      ${JAR_FILENAME}
 
 echo "Crude wait for readyness"
 sleep 2
