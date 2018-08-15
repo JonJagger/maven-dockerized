@@ -7,5 +7,5 @@ source ${MY_DIR}/.env
 echo "Build an image from the jar"
 docker build \
   --build-arg JAR_FILENAME=${JAR_FILENAME} \
-  --tag ${APP_IMAGE} \
+  --tag ${DOCKER_REGISTRY_URL}/${APP_IMAGE} \
     ${MY_DIR}/..
