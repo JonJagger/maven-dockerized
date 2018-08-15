@@ -8,18 +8,17 @@ source ${MY_DIR}/.env
 
 bring_down_container()
 {
-  docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
-  docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
-  docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
-  docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
-  docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
-  docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
-  docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
-  docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
+  #docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
+  #docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
+  #docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
+  #docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
+  #docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
+  #docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
+  #docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
+  #docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
+  #docker rm --force demowebmvc &> /dev/null || true
 
-  docker rm --force demowebmvc &> /dev/null || true
-
-  #docker ps -a
+  docker ps -a
 
   docker rm --force ${APP_CONTAINER} &> /dev/null || true
 }
