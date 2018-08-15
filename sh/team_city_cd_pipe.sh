@@ -7,6 +7,11 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
+# one time cleanup on TeamCity
+docker rm --force facesbook9001
+docker rm --force faces-book-9001
+docker rm --force faces-book-9002
+
 # - - - - - - - - - - - - - - - - - - - - - -
 
 bring_down_container()
@@ -36,6 +41,7 @@ sleep 2
 echo "Display the web-server logs"
 docker logs ${APP_CONTAINER}
 
+#============================================
 #echo "Simple sanity check"
 #readonly CURL_LOG="/tmp/curl-faces-book-${FACES_BOOK_PORT}.log"
 #curl -i -f -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG}
@@ -54,3 +60,5 @@ else
   #bring_down_container
   #exit ${status}
 fi
+#============================================
+

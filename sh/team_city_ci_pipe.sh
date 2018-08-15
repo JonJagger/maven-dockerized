@@ -4,6 +4,10 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
+# one time cleanup on TeamCity
+docker rm --force facesbook9002
+docker rm --force faces-book-9001
+
 # - - - - - - - - - - - - - - - - - - - - - -
 
 bring_down_container()
@@ -32,6 +36,7 @@ docker run \
 echo "Crude wait for readyness"
 sleep 1
 
+#============================================
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 # This works
@@ -48,6 +53,7 @@ else
   #bring_down_container
   #exit ${status}
 fi
+#============================================
 
 echo "Tag the image"
 docker tag \
