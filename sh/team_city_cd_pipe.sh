@@ -46,7 +46,7 @@ docker ps -a
 
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
-if curl -i -X GET "http://127.0.0.1:${APP_PORT}/index.html" &> ${CURL_LOG} ; then
+if curl -i -X GET "http://172.31.27.195:${APP_PORT}/index.html" &> ${CURL_LOG} ; then
   echo "Route /index.html is 200"
 else
   status=$?
