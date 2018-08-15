@@ -7,11 +7,6 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-# one time cleanup on TeamCity
-docker rm --force facesbook9001
-docker rm --force faces-book-9001
-docker rm --force faces-book-9002
-
 # - - - - - - - - - - - - - - - - - - - - - -
 
 bring_down_container()

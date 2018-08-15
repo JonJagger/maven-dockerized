@@ -4,10 +4,6 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-# one time cleanup on TeamCity
-docker rm --force facesbook9002
-docker rm --force faces-book-9001
-
 # - - - - - - - - - - - - - - - - - - - - - -
 
 bring_down_container()
@@ -50,7 +46,7 @@ else
   status=$?
   echo "Route / is poorly (${status})"
   cat ${CURL_LOG}
-  #bring_down_container
+  bring_down_container
   #exit ${status}
 fi
 #============================================
@@ -65,7 +61,7 @@ docker push \
   ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
 echo "Bring down the web-server"
-docker rm --force ${APP_CONTAINER} &> /dev/null || true
+bring_down_container
 
 echo "Remove the local images"
 docker rmi ${APP_IMAGE}
