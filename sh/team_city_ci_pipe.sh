@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
@@ -8,6 +8,15 @@ source ${MY_DIR}/.env
 
 bring_down_container()
 {
+  docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
+  docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
+  docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
+  docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
+  docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
+  docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
+  docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
+  docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
+
   docker rm --force ${APP_CONTAINER} &> /dev/null || true
 }
 
