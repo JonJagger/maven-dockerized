@@ -34,8 +34,8 @@ sleep 1
 
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
-curl --version
-if curl -i -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG} ; then
+curl --help
+if curl -i -X GET "http://0.0.0.0:${APP_PORT}/" &> ${CURL_LOG} ; then
   echo "Route / is 200"
 else
   status=$?
