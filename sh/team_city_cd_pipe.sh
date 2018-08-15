@@ -41,9 +41,11 @@ docker logs ${APP_CONTAINER}
 #curl -i -f -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG}
 #cat ${CURL_LOG}
 
+docker ps -a
+
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
-if curl -i -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG} ; then
+if curl -i -X GET "http://0.0.0.0:${APP_PORT}/" &> ${CURL_LOG} ; then
   echo "Route / is 200"
 else
   status=$?
