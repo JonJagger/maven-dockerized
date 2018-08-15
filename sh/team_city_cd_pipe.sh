@@ -17,6 +17,9 @@ bring_down_container()
 
 # - - - - - - - - - - - - - - - - - - - - - -
 
+pwd
+ls -al
+
 echo "Pull the image from the repository"
 docker pull ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
