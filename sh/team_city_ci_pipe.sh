@@ -8,18 +8,7 @@ source ${MY_DIR}/.env
 
 bring_down_container()
 {
-  #docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
-  #docker rm --force demowebmvc-${APP_PORT} &> /dev/null || true
-  #docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
-  #docker rm --force demowebmvc${APP_PORT} &> /dev/null || true
-  #docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
-  #docker rm --force demo-web-mvc-${APP_PORT} &> /dev/null || true
-  #docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
-  #docker rm --force demo-web-mvc${APP_PORT} &> /dev/null || true
-  #docker rm --force demowebmvc &> /dev/null || true
-
   docker ps -a
-
   docker rm --force ${APP_CONTAINER} &> /dev/null || true
 }
 
@@ -45,6 +34,7 @@ sleep 1
 
 echo "Run basic smoke-test"
 readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
+curl --version
 if curl -i -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG} ; then
   echo "Route / is 200"
 else
@@ -52,7 +42,7 @@ else
   echo "Route / is poorly (${status})"
   cat ${CURL_LOG}
   bring_down_container
-  exit ${status}
+  #exit ${status}
 fi
 
 echo "Tag the image"
