@@ -4,6 +4,9 @@ set -ex
 # This script (along with .env) are SCP'd onto
 # the deployment VM into a unique folder/
 
+# one time removal of container after name-change
+docker rm --force demowebmvc
+
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
