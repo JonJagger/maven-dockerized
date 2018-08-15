@@ -26,7 +26,7 @@ sleep 2
 echo "Display the web-server logs"
 docker logs ${APP_CONTAINER}
 
-echo "Simple sanity check"
+#echo "Simple sanity check"
 #readonly CURL_LOG="/tmp/curl-faces-book-${FACES_BOOK_PORT}.log"
-#curl -i -f -X GET "http://localhost:${FACES_BOOK_PORT}/" &> ${CURL_LOG}
+#curl -i -f -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG}
 #cat ${CURL_LOG}
