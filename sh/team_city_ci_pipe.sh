@@ -2,7 +2,7 @@
 set -ex
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/.env
+source ${MY_DIR}/env-vars.sh
 
 ${MY_DIR}/docker_build.sh
 ${MY_DIR}/container_down.sh
