@@ -12,6 +12,9 @@ readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 
 docker container ls
 
+# Crude wait for readyness
+sleep 5
+
 if curl -i -X GET "http://localhost:${APP_PORT}/" &> ${CURL_LOG} ; then
   echo "Route / is 200"
 else
