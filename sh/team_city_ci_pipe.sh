@@ -4,33 +4,9 @@ set -ex
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-# - - - - - - - - - - - - - - - - - - - - - -
-
-bring_down_container()
-{
-  docker ps -a
-  docker rm --force ${APP_CONTAINER} &> /dev/null || true
-}
-
-# - - - - - - - - - - - - - - - - - - - - - -
-
-echo "Build an image from the jar"
-docker build \
-  --tag ${APP_IMAGE} \
-    ${MY_DIR}/..
-
-echo "Bring down the current web-server if it exists"
-bring_down_container
-
-echo "Bring up the new web-server"
-docker run \
-  --detach \
-  --name ${APP_CONTAINER} \
-  --publish ${APP_PORT}:8080 \
-    ${APP_IMAGE}
-
-echo "Crude wait for readyness"
-sleep 1
+${MY_DIR}/docker_build.sh
+${MY_DIR}/container_down.sh
+${MY_DIR}/container_up.sh
 
 #============================================
 echo "Run basic smoke-test"
@@ -46,22 +22,14 @@ else
   status=$?
   echo "Route / is poorly (${status})"
   cat ${CURL_LOG}
-  bring_down_container
+  ${MY_DIR}/container_down.sh
   #exit ${status}
 fi
 #============================================
 
-echo "Tag the image"
-docker tag \
-  ${APP_IMAGE} \
-  ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
-
-echo "Push the image to the repository"
-docker push \
-  ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
-
-echo "Bring down the web-server"
-bring_down_container
+${MY_DIR}/docker_tag.sh
+${MY_DIR}/docker_push.sh
+${MY_DIR}/container_down.sh
 
 echo "Remove the local images"
 docker rmi ${APP_IMAGE}
