@@ -9,9 +9,6 @@ docker build \
   --tag ${APP_IMAGE} \
     ${MY_DIR}/..
 
-# remove old-one (only needed once)
-docker rm --force demo-web-mvc
-
 echo "Bring down the current web-server if it exists"
 docker rm --force ${APP_CONTAINER} &> /dev/null || true
 
