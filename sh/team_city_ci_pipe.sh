@@ -13,7 +13,6 @@ ${MY_DIR}/container_ci_smoke_tests.sh
 ${MY_DIR}/docker_push.sh
 ${MY_DIR}/container_down.sh
 
-echo "Remove the local images"
-docker rmi ${APP_IMAGE}
+echo "Remove the local image"
 docker rmi ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
