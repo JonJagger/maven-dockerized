@@ -21,7 +21,7 @@ else
   status=$?
   echo "Route /index.html is poorly (${status})"
   cat ${CURL_LOG}
-  container_down.sh
+  ${MY_DIR}/container_down.sh
   #exit ${status}
 fi
 #============================================
