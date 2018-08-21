@@ -1,15 +1,12 @@
 #!/bin/sh
-# OFF set -o errexit
+set -o errexit
 
 readonly JAR_FILENAME=$1
 
 echo "Starting the app"
-#echo "JAR_FILENAME=${JAR_FILENAME}"
-cd /app
+java -jar ${JAR_FILENAME}
 
-java -jar my_app.jar
-
-# Keep container alive
+echo "Keep container alive"
 while :
 do
 	sleep 60
