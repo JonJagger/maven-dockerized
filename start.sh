@@ -19,12 +19,12 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if [[ -d /app/netprobe ]]
-then
-  echo "Starting netprobe"
-	export LOG_FILENAME=/app/log/netprobe.log
-	/app/netprobe/netprobe.linux_64 -port 7036 &
-fi
+#if [[ -d /app/netprobe ]]
+#then
+#  echo "Starting netprobe"
+#	export LOG_FILENAME=/app/log/netprobe.log
+#	/app/netprobe/netprobe.linux_64 -port 7036 &
+#fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 

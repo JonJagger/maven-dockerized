@@ -18,8 +18,8 @@ RUN wget 'https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5
 RUN yum -y install /tmp/jdk-8u131-linux-x64.rpm
 
 # Install netprobe
-RUN wget -q https://www.dropbox.com/s/0l3wbswee5ydc2z/geneos-netprobe-4.1.0.linux-x64.tar.gz?dl=0 -O /tmp/geneos-netprobe-4.1.0.linux-x64.tar.gz
-RUN cd /app && tar xf /tmp/geneos-netprobe-4.1.0.linux-x64.tar.gz
+#RUN wget -q https://www.dropbox.com/s/0l3wbswee5ydc2z/geneos-netprobe-4.1.0.linux-x64.tar.gz?dl=0 -O /tmp/geneos-netprobe-4.1.0.linux-x64.tar.gz
+#RUN cd /app && tar xf /tmp/geneos-netprobe-4.1.0.linux-x64.tar.gz
 
 # Install logstash
 RUN wget -q https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.tar.gz -O /tmp/logstash.tgz
