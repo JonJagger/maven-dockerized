@@ -19,15 +19,6 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#if [[ -d /app/netprobe ]]
-#then
-#  echo "Starting netprobe"
-#	export LOG_FILENAME=/app/log/netprobe.log
-#	/app/netprobe/netprobe.linux_64 -port 7036 &
-#fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 if [[ -d /app/logstash-6.2.4 ]] && grep 'elk\.training\.local' /etc/hosts >/dev/null 2>&1
 then
   echo "Starting logstash"
