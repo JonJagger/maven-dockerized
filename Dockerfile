@@ -8,4 +8,5 @@ COPY ./target/${JAR_FILENAME} /app/my_app.jar
 
 COPY start.sh /app/
 RUN chmod 755 /app/start.sh
-ENTRYPOINT [ "/app/start.sh", "/app/my_app.jar" ]
+#ENTRYPOINT [ "/app/start.sh", "/app/my_app.jar" ]
+ENTRYPOINT [ "java", "-jar", "/app/my_app.jar" ]
