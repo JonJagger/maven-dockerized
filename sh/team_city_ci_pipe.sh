@@ -8,7 +8,7 @@ ${MY_DIR}/docker_build.sh
 ${MY_DIR}/container_down.sh
 ${MY_DIR}/container_up.sh
 ${MY_DIR}/container_logs.sh
-${MY_DIR}/container_smoke_tests.sh
+#${MY_DIR}/container_smoke_tests.sh
 ${MY_DIR}/container_down.sh
 ${MY_DIR}/docker_push.sh
 ${MY_DIR}/docker_rmi.sh
