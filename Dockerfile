@@ -19,7 +19,7 @@ RUN cd /app && tar xf /tmp/geneos-netprobe-4.1.0.linux-x64.tar.gz
 RUN wget -q https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.tar.gz -O /tmp/logstash.tgz
 RUN cd /app && tar xf /tmp/logstash.tgz
 RUN mkdir /app/logstash-6.2.4/conf
-COPY logstash/conf/* /app/logstash-6.2.4/conf/
+#COPY logstash/conf/* /app/logstash-6.2.4/conf/
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 
