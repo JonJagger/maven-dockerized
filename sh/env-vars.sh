@@ -1,4 +1,4 @@
-export APP_PORT=8080
+export APP_PORT=80
 export APP_IMAGE=demo-web-mvc
 export APP_CONTAINER=demo-web-mvc
 export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
