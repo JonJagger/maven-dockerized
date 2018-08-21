@@ -18,4 +18,4 @@ docker run \
     ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
 echo "Crude wait for readyness"
-sleep 2
+sleep 5

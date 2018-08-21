@@ -18,16 +18,14 @@ curl_route()
   else
     echo "FAIL ${status} ${ROUTE}"
     cat ${CURL_LOG}
+    docker ps -a
     exit 22
   fi
 }
 
 # - - - - - - - - - - - - - -
 
-echo "Run basic smoke-test"
-# Crude wait for readyness
-sleep 5
-
+echo "Run basic smoke-tests"
 curl_route '/'
 curl_route '/page1.html'
 curl_route '/page2.html'
