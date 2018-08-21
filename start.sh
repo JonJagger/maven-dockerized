@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # OFF set -o errexit
 
 readonly JAR_FILENAME=$1
