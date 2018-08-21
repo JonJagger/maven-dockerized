@@ -1,6 +1,9 @@
 FROM steve353/centos:7.4.1708
 LABEL maintainer=jon@jaggersoft.com
 
+RUN [ ! -d /app ] && mkdir -p /app/log && chmod -R 777 /app
+VOLUME [ "/app/log" ]
+
 RUN yum -y install wget
 
 # Install Java
@@ -19,9 +22,6 @@ RUN mkdir /app/logstash-6.2.4/conf
 COPY logstash/conf/* /app/logstash-6.2.4/conf/
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-
-RUN [ ! -d /app ] && mkdir -p /app/log && chmod -R 777 /app
-VOLUME [ "/app/log" ]
 
 ARG JAR_FILENAME
 COPY ./target/${JAR_FILENAME} /app/my_app.jar
