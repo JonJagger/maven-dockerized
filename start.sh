@@ -42,7 +42,9 @@ java -jar ${JAR_FILENAME} > /app/log/app.log 2>&1
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 echo "Keep container alive"
+echo "........"
 while :
 do
+  echo "."
 	sleep 60
 done
