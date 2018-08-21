@@ -10,4 +10,5 @@ echo "Push the image to the repository"
 #  ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
 # You can also docker save/load instead of using the registry.
-docker save ${APP_IMAGE} | gzip > ${MY_DIR}/${APP_IMAGE}.tar.gz
+docker save ${DOCKER_REGISTRY_URL}/${APP_IMAGE} \
+  | gzip > ${MY_DIR}/${APP_IMAGE}.tar.gz
