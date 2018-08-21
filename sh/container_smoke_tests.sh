@@ -12,7 +12,7 @@ curl_route()
   IP='localhost'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
-  if curl --fail -X GET "http://${IP}:${APP_PORT}${ROUTE}" &> ${CURL_LOG};
+  if curl --fail -X GET "http://${IP}:${APP_PORT}${ROUTE}" &> ${CURL_LOG}
   then
     echo "PASS ${status} ${ROUTE}"
   else
