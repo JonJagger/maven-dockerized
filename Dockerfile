@@ -1,4 +1,3 @@
-#FROM openjdk:8-jdk-alpine
 FROM steve353/centos:7.4.1708
 
 RUN yum -y install wget
