@@ -1,5 +1,6 @@
 #!/bin/bash
-set -ex
+set -o errexit
+set -o xtrace
 
 # This script and all sh/ files are SCP'd onto
 # the deployment VM into a unique folder/

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -o errexit
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/env-vars.sh
