@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-    String logPath = Paths.get("/app/log/app.log");
+    Path logPath = Paths.get("/app/log/app.log");
     String message = "Hello,world from Chennai";
     Files.write(logPath, message.getBytes());
 		SpringApplication.run(Application.class, args);
