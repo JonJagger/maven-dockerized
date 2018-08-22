@@ -22,8 +22,8 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.example" level="DEBUG" additivity="true">
-		<appender-ref ref="LOGFILE" />
+	<logger name="demo.webmvc" level="DEBUG" additivity="true">
+		<appender-ref ref="STDOUT" />
 	</logger>
 
 	<root level="WARN">
