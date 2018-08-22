@@ -28,7 +28,8 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 echo "Starting the app"
-java -jar ${JAR_FILENAME} > /app/log/app.log 2>&1
+java -jar ${JAR_FILENAME}
+# > /app/log/app.log 2>&1
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - -
 
