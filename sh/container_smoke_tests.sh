@@ -8,7 +8,7 @@ source ${MY_DIR}/env-vars.sh
 
 curl_route()
 {
-  IP='127.0.0.1'
+  IP='localhost'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
   curl -i --fail --verbose "${URL}"
