@@ -7,6 +7,10 @@ set -o xtrace
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 
+pwd
+ls -al
+ls -al ${MY_DIR}
+
 ${MY_DIR}/container_rm.sh
 ${MY_DIR}/docker_rmi.sh
 ${MY_DIR}/docker_prune.sh
