@@ -13,6 +13,4 @@ ${MY_DIR}/docker_prune.sh
 ${MY_DIR}/docker_pull.sh
 ${MY_DIR}/container_up.sh
 ${MY_DIR}/container_logs.sh
-#${MY_DIR}/container_smoke_tests.sh
-
-docker ps -a
+${MY_DIR}/container_smoke_tests.sh
