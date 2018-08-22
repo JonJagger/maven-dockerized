@@ -3,8 +3,8 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # The jar filename created in TeamCity's build step #1
 export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
-# Your project name
-export PROJECT_NAME=app
+# Your project name. Use only a-z 0-9 hyphen
+export PROJECT_NAME=project-metrics
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # This env-var controls how the docker image created
