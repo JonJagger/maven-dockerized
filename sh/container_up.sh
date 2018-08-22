@@ -14,7 +14,7 @@ echo "Bring up the new container"
 docker run \
   --detach \
   --name ${APP_CONTAINER} \
-  --hostname ${PROJECT_NAME} \
+  --hostname chennai-${PROJECT_NAME} \
   --mount type=bind,source=/tmp/${APP_LOG_DIR},target=${APP_LOG_DIR} \
   --publish ${APP_PORT}:80 \
   --publish 8080:8080 \
