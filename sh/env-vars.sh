@@ -23,7 +23,8 @@ export USE_REGISTRY=false
 # The following env-vars do not need to be edited.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # The port the app will run on.
-export APP_PORT=80
+#export APP_PORT=80
+export APP_PORT=9045
 
 # The name of the docker image which contains the jar file.
 export APP_IMAGE=${PROJECT_NAME}
