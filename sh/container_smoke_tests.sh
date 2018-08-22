@@ -8,20 +8,15 @@ source ${MY_DIR}/env-vars.sh
 
 curl_route()
 {
-  IP='0.0.0.0'
+  IP='localhost'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
-  if curl --fail --verbose -X GET "http://${IP}:${APP_PORT}${ROUTE}"
-  then
-    echo "PASS ${status} ${URL}"
-  else
-    echo "FAIL ${status} ${URL}"
-    docker ps -a
-    exit 22
-  fi
+  curl -i --fail --verbose "${URL}"
 }
 
 # - - - - - - - - - - - - - -
+
+cat /etc/hosts || true
 
 echo "Run basic smoke-tests"
 curl_route '/'
