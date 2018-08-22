@@ -23,11 +23,11 @@
 	</appender>
 
 	<logger name="demo.webmvc" level="DEBUG" additivity="true">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="LOGFILE" />
 	</logger>
 
 	<root level="WARN">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="LOGFILE" />
 	</root>
 
 	<property name="root.level.console" value="OFF" />
