@@ -8,9 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
 	public static void main(String[] args) {
-    Path logPath = Paths.get("/app/log/app.log");
     String message = "Hello,world from Chennai";
-    Files.write(logPath, message.getBytes());
+    Path logPath = Paths.get("/tmp/app/log/app.log");
+    try {
+        Files.write(logPath, message.getBytes());
+    }
+    catch (java.io.IOException error) {
+        System.out.println(error.getMessage());
+    }
+
 		SpringApplication.run(Application.class, args);
 	}
 }
