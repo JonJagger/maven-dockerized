@@ -11,7 +11,7 @@ curl_route()
   IP='127.0.0.1'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
-  curl --fail --verbose "${URL}"
+  curl -i --fail --verbose "${URL}"
 }
 
 # - - - - - - - - - - - - - -
