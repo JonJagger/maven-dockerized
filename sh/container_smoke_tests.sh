@@ -8,10 +8,10 @@ source ${MY_DIR}/env-vars.sh
 
 curl_route()
 {
-  IP='0.0.0.0'
+  IP='127.0.0.1'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
-  if curl --fail --verbose -X GET "http://${IP}:${APP_PORT}${ROUTE}"
+  if curl --fail --verbose "http://${IP}:${APP_PORT}${ROUTE}"
   then
     echo "PASS ${status} ${URL}"
   else
@@ -22,6 +22,8 @@ curl_route()
 }
 
 # - - - - - - - - - - - - - -
+
+cat /etc/hosts || true
 
 echo "Run basic smoke-tests"
 curl_route '/'
