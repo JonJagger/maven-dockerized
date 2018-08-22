@@ -3,7 +3,6 @@ set -o errexit
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/env-vars.sh
-readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 
 # - - - - - - - - - - - - - -
 
@@ -12,12 +11,11 @@ curl_route()
   IP='0.0.0.0'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
-  if curl --fail -X GET "http://${IP}:${APP_PORT}${ROUTE}" &> ${CURL_LOG}
+  if curl --fail --verbose -X GET "http://${IP}:${APP_PORT}${ROUTE}"
   then
     echo "PASS ${status} ${URL}"
   else
     echo "FAIL ${status} ${URL}"
-    cat ${CURL_LOG}
     docker ps -a
     exit 22
   fi
