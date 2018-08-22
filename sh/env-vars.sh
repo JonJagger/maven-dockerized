@@ -15,8 +15,8 @@ export PROJECT_NAME=app
 # fairly often because it has a disk which is too
 # small for all the sites.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-export USE_REGISTRY=true
-#export USE_REGISTRY=false
+#export USE_REGISTRY=true
+export USE_REGISTRY=false
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
