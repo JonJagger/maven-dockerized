@@ -9,7 +9,7 @@ readonly CURL_LOG="/tmp/curl-${APP_PORT}.log"
 
 curl_route()
 {
-  IP='localhost'
+  IP='0.0.0.0'
   ROUTE=$1
   URL="http://${IP}:${APP_PORT}${ROUTE}"
   if curl --fail -X GET "http://${IP}:${APP_PORT}${ROUTE}" &> ${CURL_LOG}
