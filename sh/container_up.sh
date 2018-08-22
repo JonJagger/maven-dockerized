@@ -15,8 +15,7 @@ docker run \
   --detach \
   --name ${APP_CONTAINER} \
   --mount type=bind,source=/tmp/${APP_LOG_DIR},target=${APP_LOG_DIR} \
-  --publish ${APP_PORT}:80 \
-  --publish 8080:8080 \
+  --publish ${APP_PORT}:8080 \
     ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
 echo "Crude wait for readyness"
