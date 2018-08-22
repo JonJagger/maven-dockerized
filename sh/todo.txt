@@ -2,10 +2,14 @@
 1. get logging in Java going to /app/log/app.log
 
 2. get curl tests working again on TeamCity
+   ci side
+   cd side
 
 3. check app/log/app.log gets to kibana
 
 4. change hostname inside container
+   hostname must be a-z 0-9 and hyphen
+   cannot start or end with a hyphen
 
 5. get domain name for 5 IP addresses
     34.243.27.129

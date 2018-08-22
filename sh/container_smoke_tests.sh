@@ -14,9 +14,9 @@ curl_route()
   URL="http://${IP}:${APP_PORT}${ROUTE}"
   if curl --fail -X GET "http://${IP}:${APP_PORT}${ROUTE}" &> ${CURL_LOG}
   then
-    echo "PASS ${status} ${ROUTE}"
+    echo "PASS ${status} ${URL}"
   else
-    echo "FAIL ${status} ${ROUTE}"
+    echo "FAIL ${status} ${URL}"
     cat ${CURL_LOG}
     docker ps -a
     exit 22
