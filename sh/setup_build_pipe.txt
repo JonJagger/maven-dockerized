@@ -7,16 +7,61 @@ You will need your NEW ip address for this...
 Part 1: edit TeamCity Project
 
 In Version Control Settings
-Ensure [Clean build]: is checked
 
-Build-step #2 (SSH Upload) needs to become
+  Ensure [Clean build] is checked
+
+  Click the edit link to the right of your VCS Roots, Name
+
+    Ensure [VCS root name] points to your project repo
+    It will look something like this...
+    https://bitbucket.org/USER_NAME/REPO_NAME#refs/heads/master
+
+    Ensure [Fetch URL] points to your project repo
+    It will look something like this...
+    https://bitbucket.org/USER_NAME/REPO_NAME
+
+    Ensure [Authentication method] is set to Password
+
+    Ensure [Username] is set to USER_NAME
+
+    Ensure [Password] is set to your BitBucket password
+
+
+Edit your Build Steps
+There needs to be 4 build steps, in this order
+
+Build-step #1
+- - - - - - -
+Runner type: Maven
+Step name: Build the jar
+Goals: clean package
+Path to pm: pom.xml
+
+
+Build-step #2
+- - - - - - -
+Runner type: Command line
+Step name: CI
+Run: custom script
+Custom script: #!/bin/bash
+               set -x
+               ./sh/team_city_ci_pipe.sh
+
+Build-step #3
+- - - - - - -
+Runner type: SSH Upload
+Step name: Copy
 Target: YOUR_IP_ADDRESS:sh
+Paths to sources: sh/*
 
-Build-step #3 (SSH) needs to become
+
+Build-step #4
+- - - - - - -
+Runner type: SSH Exec
+Step name: CD
 Target: YOUR_IP_ADDRESS
+Commands:  sh/team_city_cd_pipe.sh
 
-Confirm the [Commands:] entry for build-step #3 is
-sh/team_city_cd_pipe.sh
 
 ---------------------------------------------------------
 
