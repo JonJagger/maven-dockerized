@@ -5,6 +5,8 @@
 export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
 # Your project name. Use only a-z 0-9 hyphen
 export PROJECT_NAME=project-alpha
+# The port the app will run on.
+export APP_PORT=9082
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -23,9 +25,6 @@ export USE_REGISTRY=false
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # The following env-vars should not need to be edited.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The port the app will run on.
-export APP_PORT=80
-
 # The name of the docker image which contains the jar file.
 export APP_IMAGE=${PROJECT_NAME}
 

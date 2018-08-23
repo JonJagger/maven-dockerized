@@ -10,7 +10,7 @@ docker run \
   --detach \
   --name ${APP_CONTAINER} \
   --hostname chennai-${PROJECT_NAME} \
-  --publish ${APP_PORT}:80 \
+  --publish ${APP_PORT}:${APP_PORT} \
   --publish 8080:8080 \
     ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
