@@ -10,8 +10,7 @@ docker run \
   --detach \
   --name ${APP_CONTAINER} \
   --hostname chennai-${PROJECT_NAME} \
-  --publish ${APP_PORT}:${APP_PORT} \
-  --publish 8080:8080 \
+  --publish 8080:${APP_PORT} \
     ${DOCKER_REGISTRY_URL}/${APP_IMAGE}
 
 echo "Crude wait for readyness"

@@ -22,12 +22,15 @@ sh/team_city_cd_pipe.sh
 
 Part 2: edit your source
 
+finish, add, commit, push your current piece of work. Then
+
 git clone https://github.com/JonJagger/maven-dockerized.git
 
 1. replace /sh in your repo with its sh/
-   edit the top two environment variables
+   edit the top three environment variables
    JAR_FILENAME
    PROJECT_NAME
+   APP_PORT
    in the file sh/env-vars.sh as per its comments.
 
 2. add its /Dockerfile to your repo's root dir
