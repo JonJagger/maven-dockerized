@@ -8,10 +8,10 @@
 -->
 
 	<appender name="LOGFILE" class="ch.qos.logback.core.FileAppender">
-		<file>app.log</file>
+		<file>/app/log/app.log</file>
 		<append>true</append>
 		<encoder>
-			<pattern>%date %-5level %logger{35} - %msg%n
+			<pattern>%-5level %logger{35} - %msg%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -27,7 +27,7 @@
 	</logger>
 
 	<root level="WARN">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="LOGFILE" />
 	</root>
 
 	<property name="root.level.console" value="OFF" />
