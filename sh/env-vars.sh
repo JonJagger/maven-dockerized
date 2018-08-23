@@ -1,11 +1,11 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # Edit these four env-vars
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The value of the artifactId tag from your pom.xml
+# The value of the artifactId tag from your /pom.xml file
 # Mine looks like this <artifactId>demowebmvc</artifactId>
 export POM_ARTIFACT_ID=demowebmvc
 
-# The value of the version tag from your pom.xml
+# The value of the version tag from your /pom.xml file
 # Mine looks like this <version>0.0.1-SNAPSHOT</version>
 export POM_VERSION=0.0.1-SNAPSHOT
 

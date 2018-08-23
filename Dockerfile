@@ -1,9 +1,8 @@
 FROM steve353/centos:7.4.1708
 LABEL maintainer=jon@jaggersoft.com
 
-EXPOSE 7036
-
 ENV ELK=172.31.0.72
+EXPOSE 7036
 
 RUN [ ! -d /app ] && mkdir -p /app/log && chmod -R 777 /app
 VOLUME [ "/app/log" ]
@@ -23,9 +22,8 @@ COPY logstash/conf/* /app/logstash-6.2.4/conf/
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 
-ARG JAR_FILENAME
-COPY ./target/${JAR_FILENAME} /app/my_app.jar
-
 COPY start.sh /app/
 RUN chmod 755 /app/start.sh
+ARG JAR_FILENAME
+COPY ./target/${JAR_FILENAME} /app/my_app.jar
 ENTRYPOINT [ "/app/start.sh", "/app/my_app.jar" ]
