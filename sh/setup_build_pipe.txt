@@ -2,6 +2,8 @@
 Setting Up The TeamCity Build Pipe
 ==================================
 
+You will need your NEW ip address for this...
+
 Part 1: edit TeamCity Project
 
 In Version Control Settings
