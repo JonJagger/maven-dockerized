@@ -1,0 +1,77 @@
+
+Setting up Logging to Kibana on the ELK stack
+=============================================
+
+Part 1: edit your source
+
+git clone https://github.com/JonJagger/maven-dockerized.git
+
+1. add its /src/main/resources/logback.xml
+
+2. add the following inside the <dependencies> tag in your pom.xml
+
+    <dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+3. add some code that logs to your app.
+   EXAMPLE OF LOGGING CODE...
+
+package demo.webmvc;
+
+import org.slf4j.Logger;         // <===
+import org.slf4j.LoggerFactory;  // <===
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class LogController {
+
+	private Logger logger = LoggerFactory.getLogger(LogController.class); // <===
+
+	@RequestMapping("/logger")
+	public String loghandler() {
+		logger.warn("Log link clicked"); // <===
+		return "log";
+	}
+}
+
+---------------------------------------------------------
+
+Part 2: Check it works when running locally
+
+Build and run your app so it logs a message.
+Check the content of the app.log file in your apps root directory.
+
+---------------------------------------------------------
+
+Part 3: Check it works when running on the deployment machine
+
+git add your changes
+git commit your changes
+git push your changes
+
+if the TeamCity build step goes through ok...
+
+1. Run your app so it logs a message
+
+2. Open http://elk.conygre.com:5601 in a tab in your browser.
+
+3. check the time period is set to something quite large.
+look for the mini clock icon in the top right hand side
+
+4. if the name of your project (as set in sh/env-vars.sh) is set to
+                         alpha
+then enter the following text in the query-string text entry field
+                 chennai-alpha && type=applog
+
+5. Confirm that kibana finds and displays your log message
+
+
+
+
+
+
+

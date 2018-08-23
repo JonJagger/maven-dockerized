@@ -1,0 +1,51 @@
+
+Setting Up The TeamCity Build Pipe
+==================================
+
+Part 1: edit TeamCity Project
+
+In Version Control Settings
+Ensure [Clean build]: is checked
+
+Build-step #2 (SSH Upload) needs to become
+Target: YOUR_IP_ADDRESS:sh
+
+Build-step #3 (SSH) needs to become
+Target: YOUR_IP_ADDRESS
+
+Confirm the [Commands: entry] for build-step #3 is
+sh/team_city_cd_pipe.sh
+
+---------------------------------------------------------
+
+Part 2: edit your source
+
+git clone https://github.com/JonJagger/maven-dockerized.git
+
+1. replace /sh/* in your repo with its sh/
+   edit the file sh/env-vars.sh as per its comments.
+
+2. add its /Dockerfile to your repo's root dir
+
+3. add its /start.sh to your repo's root dir
+
+4. /src/main/resources/application.properties
+Needs this line
+server.port=80
+
+---------------------------------------------------------
+
+Part 3: Check it works!
+
+git add your changes
+git commit your changes
+git push your changes
+
+if the TeamCity build step goes through ok your app should be
+running on YOUR_IP_ADDRESS
+
+
+
+
+
+
