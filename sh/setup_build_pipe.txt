@@ -45,6 +45,7 @@ Step name: CI
 Run: custom script
 Custom script: #!/bin/bash
                set -x
+               chmod +x ./sh/*
                ./sh/team_city_ci_pipe.sh
 
 Build-step #3
