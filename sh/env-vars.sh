@@ -21,7 +21,7 @@ export USE_REGISTRY=false
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The following env-vars do not need to be edited.
+# The following env-vars should not need to be edited.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # The port the app will run on.
 export APP_PORT=80
