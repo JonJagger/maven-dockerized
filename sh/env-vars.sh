@@ -1,11 +1,21 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# Edit these env-vars
+# Edit these four env-vars
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The jar filename created in target/ by maven/eclipse
-export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
-# Your project name. Use only a-z 0-9 hyphen
+# The value of the artifactId tag from your pom.xml
+# Mine looks like this <artifactId>demowebmvc</artifactId>
+export POM_ARTIFACT_ID=demowebmvc
+
+# The value of the version tag from your pom.xml
+# Mine looks like this <version>0.0.1-SNAPSHOT</version>
+export POM_VERSION=0.0.1-SNAPSHOT
+
+# Your project name.
+# Use only a-z 0-9 hyphen
 export PROJECT_NAME=project-alpha
-# The port the app will run on. Same as in application.properties
+
+# The port the app will run on.
+# Edit this to the same value you are using as your
+# application.properties file
 export APP_PORT=9082
 
 
@@ -25,6 +35,9 @@ export USE_REGISTRY=false
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # The following env-vars should not need to be edited.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
+# The jar filename created in target/ by maven/eclipse
+export JAR_FILENAME=${POM_ARTIFACT_ID}-${POM_VERSION}.jar
+
 # The name of the docker image which contains the jar file.
 export APP_IMAGE=${PROJECT_NAME}
 

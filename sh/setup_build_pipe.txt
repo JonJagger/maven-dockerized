@@ -27,21 +27,19 @@ finish, add, commit, push your current piece of work. Then
 git clone https://github.com/JonJagger/maven-dockerized.git
 
 1. replace /sh in your repo with its sh/
-   edit the top three environment variables
-   JAR_FILENAME
-   PROJECT_NAME
-   APP_PORT
-   in the file sh/env-vars.sh as per its comments.
+
+2. in your new sh/env-vars.sh file, edit the top
+   four environment variables, as per the comments.
+       POM_ARTIFACT_ID
+       POM_VERSION
+       PROJECT_NAME
+       APP_PORT
 
 2. add its /Dockerfile to your repo's root dir
    (if you already have a Dockerfile, replace it)
 
 3. add its /start.sh to your repo's root dir
    (if you already have a start.sh, replace it)
-
-4. edit /src/main/resources/application.properties
-Make sure it has one server.port entry set to 80
-server.port=80
 
 ---------------------------------------------------------
 
