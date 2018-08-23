@@ -59,15 +59,17 @@ if the TeamCity build step goes through ok...
 
 2. Open http://elk.conygre.com:5601 in a tab in your browser.
 
-3. check the time period is set to something quite large.
+3. Check the time period is set to something quite large.
 look for the mini clock icon in the top right hand side
 
-4. if the name of your project (as set in sh/env-vars.sh) is set to
+4. If the name of your project (as set in sh/env-vars.sh) is set to
                          alpha
 then enter the following text in the query-string text entry field
                  chennai-alpha && type=applog
 
-5. Confirm that kibana finds and displays your log message
+5. Wait a few minutes
+
+6. Confirm that kibana finds and displays your log message
 
 
 
