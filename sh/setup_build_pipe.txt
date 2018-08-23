@@ -52,6 +52,7 @@ git push your changes
 if the TeamCity build step goes through ok your app should be
 running on YOUR_IP_ADDRESS/your-home-page.html
 
+Note there is no port number.
 
 
 

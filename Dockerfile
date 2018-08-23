@@ -1,9 +1,7 @@
 FROM steve353/centos:7.4.1708
 LABEL maintainer=jon@jaggersoft.com
 
-#EXPOSE 8080
 EXPOSE 7036
-#EXPOSE 80
 
 ENV ELK=172.31.0.72
 

@@ -10,7 +10,7 @@ public class LogController {
 	Logger logger = LoggerFactory.getLogger(LogController.class);
 	@RequestMapping("/logger")
 	public String loghandler() {
-		logger.warn("Log link clicked");
+		logger.warn("Log link has been clicked");
 		return "log";
 	}
 }

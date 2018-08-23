@@ -13,8 +13,8 @@ export POM_VERSION=0.0.1-SNAPSHOT
 # Use only a-z 0-9 hyphen
 export PROJECT_NAME=project-alpha
 
-# The port the app will run on.
-# Edit this to the same value you are using as your
+# The port your apps runs on.
+# Edit this to the same value you are using in your
 # application.properties file
 export APP_PORT=9082
 
