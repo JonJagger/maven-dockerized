@@ -8,7 +8,7 @@
 -->
 
 	<appender name="LOGFILE" class="ch.qos.logback.core.FileAppender">
-		<file>/app/log/app.log</file>
+		<file>/log/app.log</file>
 		<append>true</append>
 		<encoder>
 			<pattern>%-5level %logger{35} - %msg%n
