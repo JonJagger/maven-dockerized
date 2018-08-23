@@ -5,7 +5,6 @@ ENV ELK=172.31.0.72
 EXPOSE 7036
 
 RUN [ ! -d /app ] && mkdir -p /app/log && chmod -R 777 /app
-#VOLUME [ "/app/log" ]
 
 RUN yum -y install wget
 
