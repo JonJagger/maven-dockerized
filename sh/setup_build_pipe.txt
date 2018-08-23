@@ -69,19 +69,22 @@ Part 2: edit your source
 
 git clone https://github.com/JonJagger/maven-dockerized.git
 
-1. replace /sh in your repo with its sh/
+1. add the cloned repo's logstash/ dir to your repo's root dir
 
-2. in your new sh/env-vars.sh file, edit the top
+2. add the cloned repo's /sh dir to your repo's root dir
+   (if you already have a sh/ dir delete it first)
+
+3. in your new sh/env-vars.sh file, edit the top
    four environment variables, as per their comments.
        POM_ARTIFACT_ID
        POM_VERSION
        PROJECT_NAME
        APP_PORT
 
-2. add the cloned repo's /Dockerfile to your repo's root dir
+4. add the cloned repo's /Dockerfile to your repo's root dir
    (if you already have a Dockerfile, replace it)
 
-3. add the cloned repo's /start.sh to your repo's root dir
+5. add the cloned repo's /start.sh to your repo's root dir
    (if you already have a start.sh, replace it)
 
 ---------------------------------------------------------
