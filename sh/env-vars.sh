@@ -1,7 +1,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # Edit these two env-vars
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The jar filename created in TeamCity's build step #1
+# The jar filename created in target/ by maven/eclipse
 export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
 # Your project name. Use only a-z 0-9 hyphen
 export PROJECT_NAME=project-metrics
