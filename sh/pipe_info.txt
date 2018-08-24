@@ -1,0 +1,124 @@
+
+Deploying
+=========
+
+Suppose you are deploying two (or more) applications to the same deployment machine.
+One of them requires a library/OS at version N, the other, version M.
+This is very common and often results in all apps, across the entire organization,
+being required to work with a specified version of the library/os. It then becomes
+very very very difficult to upgrade to a later version since the entire organization
+has to upgrade at the same time. On my travels I have seen organizations stuck at
+decades old versions. The opposite of agile.
+
+Docker is a containerization/isolation technology that, among other things, helps to
+solve this problem. We do not use a deployment machine, install the Java runtime
+on it, and then deploy the jar to that machine. Inside we use a deployment machine
+with Docker installed on it. Then we build a docker image which has the Java runtime
+installed _inside_ the image. We can easily then run two dockerized Java applications
+on the same deployment machine, one with Java version N installed inside it, the
+other with Java version M installed inside it.
+If you look at the Dockerfile you will see it installs Java. It does this using the
+same commands you would use to install Java, at the terminal, but prefixed
+with RUN. Note that the Dockerfile is also installing something called logstash.
+We will get to that.
+
+//-----------------------------------------------------------------
+
+Overview of the TeamCity Build Steps
+====================================
+
+0. Git clone the source repository
+This happens when BitBucket sees you have made a commit, or
+when you force a build by clicking the [run] button.
+
+1. Build the jar
+This uses the TeamCity Maven runner to run the command
+$ mvn clean package
+You can run this same command on your local computer it you want.
+This is a good way to get the same error locally, as you get on the build pipe.
+
+2. Build the docker image with the jar in it and push the image
+This uses the TeamCity Command Line runner to run some bash scripts
+in the sh/ directory....
+sh/docker_build.sh
+This creates the docker image using the [docker build] command.
+The last argument ${MY_DIR}/.. is the location of the Dockerfile.
+Note that we have to pass the JAR_FILENAME created by [mvn clean package]
+so that the Dockerfile knows the name of the jar file to COPY into the image.
+The --tag sets the name of the docker image being created.
+sh/docker_push.sh
+This pushes the created docker image to a docker registry.
+A registry is like a source code repository (github, BitBucket) but
+for images instead of source.
+
+3. Copy some simple scripts to the deployment machine
+This uses the TeamCity SSH Upload runner to copy the sh/* files
+to the deployment machine. SSH stands for Secure SHell. It allows
+you to run, securely, a shell (such as bash) on a remote machine.
+
+4. Run the deployment script on the deployment machine
+This uses the TeamCity SSH Exec runner to run sh/team_city_cd_pipe.sh
+This runs two helper scripts
+sh/docker_pull.sh
+to pull the docker image previously pushed to the docker registry.
+sh/container_up.sh
+You do not run a docker image. You create a docker container from a
+docker image, and you run the container. If the image is a class X,
+then the container is new X()
+The last argument to [docker run] is the name of the image.
+Notice too the port your java app is running on, eg 8082 (inside the
+container) is mapped to port 80 (on the host deployment machine).
+
+Note we never edit the live, deployed server; a very very bad idea.
+Instead we fix the bug in the source, git commit and push, and
+let the build pipe create a _new_ image, from which we start a
+_new_ container. The are various ways to do this, with varying
+levels of sophistication. For example it is common to make the domain
+name of your app (eg sma.conygre.com) map to a load-balancer, which
+then diverts the HTTP requests on the actual server the app is deployed on.
+We can deploy to a new machine, then simply switch the load-balancer to
+the new machine, and some time later, bring down the old deployment machine.
+
+//-----------------------------------------------------
+
+Logging
+=======
+The containerization/isolation that docker brings is tremendous, but
+it does have its consequences. Consider logging for example. When you
+run you app locally, you can look at the local log file. But what about
+when the log file is _inside_ a docker container on a remote deployment
+machine? There are various ways to solve this.
+We are solving it by installing a program called logstash.
+Note again, we do _not_ install logstash on the deployment machine.
+We install logstash inside the docker image, via the Dockerfile.
+
+Logstash is part of the "ELK stack".
+
+   E lasticsearch - to search log data
+   L ogstash - to route log data
+   K ibana  - to visualize log data
+
+1. setup our java app to log to /app/log/app.log
+2. setup logstash to collect all the logs it sees in the /app/log/ directory.
+3. setup logstash to send these logs to a remote machine, 172.31.0.72 on port 9200.
+
+Please now get your deployed application to log to the ELK stack
+by following the instructions in the file
+
+      sh/setup_logging.txt
+
+
+//-----------------------------------------------------
+
+Last thing...
+=============
+I asked BitBucket why the source view did not match the commit view.
+14 days later they have replied. There is a beta feature which is clearly not
+working. But you can turn off the beta feature.
+In BitBucket, click your user-icon at the bottom left.
+Select [Bitbucket Labs] in the popup list.
+Turn off [New source browser experience BETA]
+
+
+
+

@@ -34,7 +34,7 @@ Build-step #1
 - - - - - - -
 Runner type: Maven
 Step name: Build the jar
-Goals: clean package
+Goals: mvn clean package
 Path to pm: pom.xml
 
 
@@ -52,6 +52,9 @@ Build-step #3
 - - - - - - -
 Runner type: SSH Upload
 Step name: Copy
+Authentication method: Password
+Username: teamcity
+Password: xxxxx
 Target: YOUR_IP_ADDRESS:sh
 Paths to sources: sh/*
 
@@ -60,6 +63,9 @@ Build-step #4
 - - - - - - -
 Runner type: SSH Exec
 Step name: CD
+Authentication method: Password
+Username: teamcity
+Password: xxxxx
 Target: YOUR_IP_ADDRESS
 Commands:  sh/team_city_cd_pipe.sh
 

@@ -6,7 +6,8 @@ Part 1: edit your source
 
 git clone https://github.com/JonJagger/maven-dockerized.git
 
-1. add its /src/main/resources/logback.xml
+1. add the cloned repo's /src/main/resources/logback.xml
+   file to your repo in the same location
 
 2. add the following inside the <dependencies> tag in your pom.xml
 
@@ -18,23 +19,16 @@ git clone https://github.com/JonJagger/maven-dockerized.git
 3. add some code that logs to your app.
    EXAMPLE OF LOGGING CODE...
 
-package demo.webmvc;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.slf4j.Logger;         // <===
-import org.slf4j.LoggerFactory;  // <===
+public class Example {
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+	private Logger logger =
+      LoggerFactory.getLogger(LogController.class);
 
-@Controller
-public class LogController {
-
-	private Logger logger = LoggerFactory.getLogger(LogController.class); // <===
-
-	@RequestMapping("/logger")
-	public String loghandler() {
-		logger.warn("Log link clicked"); // <===
-		return "log";
+	public void logExample() {
+		  logger.warn("Log link clicked");
 	}
 }
 
@@ -43,7 +37,7 @@ public class LogController {
 Part 2: Check it works when running locally
 
 Build and run your app so it logs a message.
-Check the content of the app.log file in your apps root directory.
+Check the content of the /app/log/app.log file in your apps root directory.
 
 ---------------------------------------------------------
 
@@ -57,17 +51,17 @@ if the TeamCity build step goes through ok...
 
 1. Run your app so it logs a message
 
-2. Open http://elk.conygre.com:5601 in a tab in your browser.
+2. Open http://elk.conygre.com:5601 in a tab in a browser.
 
-3. Check the time period is set to something quite large.
-look for the mini clock icon in the top right hand side
+3. Ensure the time period is set to something quite large.
+Look for the mini clock icon at the top right hand side
 
-4. If the name of your project (as set in sh/env-vars.sh) is set to
+4. Wait a minute or so.
+
+5. If the name of your project (as set in sh/env-vars.sh) is set to
                          alpha
 then enter the following text in the query-string text entry field
                  chennai-alpha && type=applog
-
-5. Wait a few minutes
 
 6. Confirm that kibana finds and displays your log message
 
