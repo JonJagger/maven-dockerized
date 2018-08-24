@@ -14,5 +14,3 @@ ${MY_DIR}/docker_pull.sh
 ${MY_DIR}/container_up.sh
 ${MY_DIR}/container_logs.sh
 #${MY_DIR}/container_smoke_tests.sh
-
-docker ps -a

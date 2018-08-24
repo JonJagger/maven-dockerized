@@ -1,10 +1,23 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# Edit these two env-vars
+# Edit these four env-vars
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The jar filename created in TeamCity's build step #1
-export JAR_FILENAME=demowebmvc-0.0.1-SNAPSHOT.jar
-# Your project name
-export PROJECT_NAME=app
+# The value of the artifactId tag from your /pom.xml file
+# Mine looks like this <artifactId>demowebmvc</artifactId>
+export POM_ARTIFACT_ID=demowebmvc
+
+# The value of the version tag from your /pom.xml file
+# Mine looks like this <version>0.0.1-SNAPSHOT</version>
+export POM_VERSION=0.0.1-SNAPSHOT
+
+# Your project name.
+# Use only a-z 0-9 hyphen
+export PROJECT_NAME=project-alpha
+
+# The port your apps runs on.
+# Edit this to the same value you are using in your
+# application.properties file
+export APP_PORT=9082
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
 # This env-var controls how the docker image created
@@ -20,11 +33,10 @@ export USE_REGISTRY=false
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The following env-vars do not need to be edited.
+# The following env-vars should not need to be edited.
 # - - - - - - - - - - - - - - - - - - - - - - - - -
-# The port the app will run on.
-export APP_PORT=80
-#export APP_PORT=9045
+# The jar filename created in target/ by maven/eclipse
+export JAR_FILENAME=${POM_ARTIFACT_ID}-${POM_VERSION}.jar
 
 # The name of the docker image which contains the jar file.
 export APP_IMAGE=${PROJECT_NAME}
