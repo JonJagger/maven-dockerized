@@ -13,6 +13,7 @@ mkdir -p /tmp/${APP_LOG_DIR}
 echo "Bring up the new container"
 docker run \
   --detach \
+  --tmpfs /tmp \
   --name ${APP_CONTAINER} \
   --hostname chennai-${PROJECT_NAME} \
   --mount type=bind,source=/tmp/${APP_LOG_DIR},target=${APP_LOG_DIR} \
